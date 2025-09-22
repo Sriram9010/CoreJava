@@ -1,1 +1,21 @@
-//base java
+public class BillCalculate 
+{
+    public static void main(String [] args) 
+    {
+       int chickenRoll = Integer.parseInt(args[0]);
+       int vegPuff = Integer.parseInt(args[1]);
+       int discount = Integer.parseInt(args[2]);
+
+        System.out.println("ChickenRoll:"+(chickenRoll*4));
+        System.out.println("VegPuff:"+(vegPuff*3));
+        System.out.println("FinalBill:"+(discount));
+        System.out.println("FinalBill:"+((chickenRoll*4)+(vegPuff*3)-(discount)));
+    }
+}
+o/p:
+C:\Users\srira\OneDrive\Desktop\codes\lab>java BillCalculate  60 25 50
+ChickenRoll:240
+VegPuff:75
+FinalBill:50
+FinalBill:265
+==============================================================================================================================================================
