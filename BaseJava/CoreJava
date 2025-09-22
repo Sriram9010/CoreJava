@@ -41,3 +41,19 @@ o/p
 @      @
 @@@@@@@@
 ==============================================================================================================================================================
+public class DegreeCalculate
+{
+    public static void main(String [] args) 
+    {
+       int fahrenheit = Integer.parseInt(args[0]);
+       int celsius = Integer.parseInt(args[1]);
+       int Conversion;
+
+        System.out.println("Conversion:"+(Conversion=(celsius=((fahrenheit-32)*5)/9)));
+        
+    }
+}
+o/p
+C:\Users\srira\OneDrive\Desktop\codes\lab>java DegreeCalculate 50 56
+Conversion:10
+==============================================================================================================================================================
