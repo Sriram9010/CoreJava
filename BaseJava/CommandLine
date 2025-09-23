@@ -12,7 +12,8 @@ public class BillCalculate
         System.out.println("FinalBill:"+((chickenRoll*4)+(vegPuff*3)-(discount)));
     }
 }
-o/p:
+
+Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>java BillCalculate  60 25 50
 ChickenRoll:240
 VegPuff:75
@@ -31,7 +32,8 @@ public class DegreeCalculate
         
     }
 }
-o/p
+
+Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>java DegreeCalculate 50 56
 Conversion:10
 =======================================================================================================================================================
@@ -58,7 +60,8 @@ public class SellingTv{
 		System.out.println("Selling Price:"+sellingPrice);
 	}
 }
-o/p:
+
+Output:
 C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SellingTv 32500 0.27 0.05
 Selling Price:32500.32
 ======================================================================================================================================================
