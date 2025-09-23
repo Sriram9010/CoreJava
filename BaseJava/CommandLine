@@ -18,4 +18,35 @@ ChickenRoll:240
 VegPuff:75
 FinalBill:50
 FinalBill:265
-========================================================================================================================================
+=======================================================================================================================================================
+public class DegreeCalculate
+{
+    public static void main(String [] args) 
+    {
+       int fahrenheit = Integer.parseInt(args[0]);
+       int celsius = Integer.parseInt(args[1]);
+       int Conversion;
+
+        System.out.println("Conversion:"+(Conversion=(celsius=((fahrenheit-32)*5)/9)));
+        
+    }
+}
+o/p
+C:\Users\srira\OneDrive\Desktop\codes\lab>java DegreeCalculate 50 56
+Conversion:10
+=======================================================================================================================================================
+ public class SellingCycle {
+    public static void main(String[] args) {
+        int oldCycle = Integer.parseInt(args[0]);
+        int repair = Integer.parseInt(args[1]);
+        int coloring = Integer.parseInt(args[2]);
+        int Accesories = Integer.parseInt(args[3]);
+        int profit = 1500;
+        int sellingPrice=0;
+        int totalPrice = (oldCycle + repair + coloring + Accesories);
+
+        System.out.println("Selling Price:"+(totalPrice+profit));
+    }
+}
+======================================================================================================================================================
+
