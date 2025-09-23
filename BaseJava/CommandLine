@@ -49,4 +49,17 @@ Conversion:10
     }
 }
 ======================================================================================================================================================
+public class SellingTv{
+	public static void main(String args[]) {
+		int NewTv= Integer.parseInt(args[0]);
+		float profit=Float.parseFloat(args[1]);
+		float gst=Float.parseFloat(args[2]);
+		float sellingPrice=(NewTv+profit+gst);
+		System.out.println("Selling Price:"+sellingPrice);
+	}
+}
+o/p:
+C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SellingTv 32500 0.27 0.05
+Selling Price:32500.32
+======================================================================================================================================================
 
