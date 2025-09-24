@@ -65,4 +65,20 @@ Output:
 C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SellingTv 32500 0.27 0.05
 Selling Price:32500.32
 ======================================================================================================================================================
+public class StringDouble {
+    public static void main(String[] args) {
+        
+        double val1 = Double.parseDouble(args[0]);
+        double val2 = Double.parseDouble(args[1]);
+        
+        System.out.println("Multiplication Result :" +(val1*val2));
+    }
+} 
+
+Output:
+C:\Users\srira\OneDrive\Desktop\codes\lab>javac StringDouble.java
+
+C:\Users\srira\OneDrive\Desktop\codes\lab>java StringDouble 12.5 3.2
+Multiplication Result :40.0
+======================================================================================================================================================
 
