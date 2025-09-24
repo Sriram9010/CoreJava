@@ -81,4 +81,23 @@ C:\Users\srira\OneDrive\Desktop\codes\lab>javac StringDouble.java
 C:\Users\srira\OneDrive\Desktop\codes\lab>java StringDouble 12.5 3.2
 Multiplication Result :40.0
 ======================================================================================================================================================
+public class SumOfNumbers {
+    public static void main(String[] args) {
+        int num1 = Integer.parseInt(args[0]);
+        int num2 = Integer.parseInt(args[1]);
+        int num3 = Integer.parseInt(args[2]);
+        int num4 = Integer.parseInt(args[3]);
+        
+
+        System.out.println("Sum of numbers :"+(num1 + num2 + num3 + num4));
+    }
+}
+
+Output:
+C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>javac SumOfNumbers.java
+
+C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SumOfNumbers 100 50 50 100
+Sum of numbers :300
+======================================================================================================================================================
+
 
