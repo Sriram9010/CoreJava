@@ -1,3 +1,60 @@
+//FindSquare
+public class FindSquare
+ {
+    public static void main(String[] args) 
+    {        
+        int num = Integer.parseInt(args[0]);  
+        System.out.println("Square of "+num+" is :"+(num*num));
+    }
+ }
+=======================================================================================================================================================
+//AreaOfRectangle
+ public class AreaOfRectangle {
+    public static void main(String[] args) 
+    {
+        int length = Integer.parseInt(args[0]);
+        int breadth = Integer.parseInt(args[1]);
+        int areaOfRect = length * breadth;
+        System.out.println("Area of Rectangle is :"+areaOfRect);
+    }
+ }
+=======================================================================================================================================================
+//AreaOfCircle
+public class AreaOfCircle {
+    public static void main(String[] args) 
+    {
+        final double PI = 3.14;          
+        double radius = Double.parseDouble(args[0]);
+        double areaOfCircle = PI * radius * radius;
+        System.out.println("Area of Circle is :"+areaOfCircle);
+    }
+ }
+=======================================================================================================================================================
+//ArrayLengthCalculation
+ public class ArrayLengthCalculation {
+    public static void main(String[] args) 
+    {
+        if(args.length ==0)
+        {
+          System.err.println("Array Length is 0");
+        }
+        else if(args.length == 1)
+        {
+            int num = Integer.parseInt(args[0]);
+            System.out.println("Cube of "+num+" is :"+(num*num*num));
+        }
+        else if(args.length == 2)
+        {
+            int x = Integer.parseInt(args[0]);
+            int y = Integer.parseInt(args[1]);
+            int sum = x + y;
+            System.out.println("Sum is :"+sum);
+        }    
+    }
+ }
+=======================================================================================================================================================
+//
+=======================================================================================================================================================
 public class BillCalculate 
 {
     public static void main(String [] args) 
