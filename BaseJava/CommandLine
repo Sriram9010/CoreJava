@@ -179,4 +179,18 @@ public class Operations {
     }
 }
 ======================================================================================================================================================
+public class AreaOfCylinder {
+    public static void main(String[] args) {
+        final double pi = 3.14;
+        int radius = Integer.parseInt(args[0]);
+        float height = Float.parseFloat(args[1]);
 
+         System.out.println("Total surface Area Of Cylinder:" +((2*pi*radius)*(radius+height)));
+    }
+}
+output =
+C:\Users\srira\OneDrive\Desktop\codes\lab>javac AreaOfCylinder.java
+
+C:\Users\srira\OneDrive\Desktop\codes\lab>java AreaOfCylinder 4 28.5
+Total surface Area Of Cylinder:816.4
+======================================================================================================================================================
