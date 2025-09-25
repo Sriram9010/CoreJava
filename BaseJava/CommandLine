@@ -1,3 +1,4 @@
+
 //FindSquare
 public class FindSquare
  {
@@ -194,3 +195,13 @@ C:\Users\srira\OneDrive\Desktop\codes\lab>javac AreaOfCylinder.java
 C:\Users\srira\OneDrive\Desktop\codes\lab>java AreaOfCylinder 4 28.5
 Total surface Area Of Cylinder:816.4
 ======================================================================================================================================================
+public class CelsiusConvert
+{
+    public static void main(String [] args) 
+    {
+       int Celsius = Integer.parseInt(args[0]);
+        System.out.println("Farenheit="+(9*Celsius)/5+32);
+    }
+}
+======================================================================================================================================================
+
