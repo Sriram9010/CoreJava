@@ -5,7 +5,7 @@ public static void main(String[] args)
 System.out.println(10 + 020 + 0x10);      //0*16^0+1*16^1 .........,2*8^1...
 }
 }
-//output:
+//Output:
 42
 ======================================================================================================================================================
 public class Test
@@ -16,7 +16,7 @@ int x = 0b1010;    //binary 8+2
 System.out.println(x);
 }
 }
-//output:
+//Output:
 10
 ======================================================================================================================================================
 public class FloatingLiterals
@@ -32,7 +32,7 @@ System.out.println("Scientific: " + d2);
 System.out.println("Float: " + f);
 }
 }
-//output:
+//Output:
  Double: 3.14159
 Scientific: 1200.0
 Float: 2.5
