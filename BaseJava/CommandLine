@@ -55,8 +55,6 @@ public class AreaOfCircle {
     }
  }
 =======================================================================================================================================================
-//
-=======================================================================================================================================================
 public class BillCalculate 
 {
     public static void main(String [] args) 
@@ -72,7 +70,7 @@ public class BillCalculate
     }
 }
 
-Output:
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>java BillCalculate  60 25 50
 ChickenRoll:240
 VegPuff:75
@@ -92,7 +90,7 @@ public class DegreeCalculate
     }
 }
 
-Output:
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>java DegreeCalculate 50 56
 Conversion:10
 =======================================================================================================================================================
@@ -120,7 +118,7 @@ public class SellingTv{
 	}
 }
 
-Output:
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SellingTv 32500 0.27 0.05
 Selling Price:32500.32
 ======================================================================================================================================================
@@ -134,7 +132,7 @@ public class StringDouble {
     }
 } 
 
-Output:
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>javac StringDouble.java
 
 C:\Users\srira\OneDrive\Desktop\codes\lab>java StringDouble 12.5 3.2
@@ -152,7 +150,7 @@ public class SumOfNumbers {
     }
 }
 
-Output:
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>javac SumOfNumbers.java
 
 C:\Users\srira\OneDrive\Desktop\codes\basic\Buy>java SumOfNumbers 100 50 50 100
@@ -190,7 +188,7 @@ public class AreaOfCylinder {
          System.out.println("Total surface Area Of Cylinder:" +((2*pi*radius)*(radius+height)));
     }
 }
-output =
+//Output:
 C:\Users\srira\OneDrive\Desktop\codes\lab>javac AreaOfCylinder.java
 
 C:\Users\srira\OneDrive\Desktop\codes\lab>java AreaOfCylinder 4 28.5
