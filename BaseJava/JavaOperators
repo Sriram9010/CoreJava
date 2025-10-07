@@ -1,0 +1,29 @@
+package BLC;
+
+public class Calculator {
+	
+	public static int sum(int x,int y) {
+		return x+y;
+	}
+	public static int sub(int x,int y) {
+		return x-y;
+	}
+}
+--------------------------------------------
+package Elc;
+
+import BLC.Calculator;
+
+public class ArithmeticOperations {
+	public static void main(String[] args) {
+		int a=20;
+		int b=30;
+		int result=Calculator.sum(a, b);
+		int res=Calculator.sub(a,b);
+		System.out.println("Addition ="+result);
+		System.out.println("Substraction ="+res);
+		
+	
+	}
+
+}
