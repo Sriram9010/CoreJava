@@ -79,4 +79,39 @@ public class ArithmeticOperations {
 
 }
 ===============================================================================================================================================================
+package BLC;
+
+public class EvenOdd {
+   public static boolean isEven(int a) {
+	  
+	   if(a%2==0) {
+		   return true;
+	   }
+	   else {
+		   return false;
+	   }
+   }
+
+   
+}
+--------------------------------
+package Elc;
+import java.util.Scanner;
+import BLC.EvenOdd;
+public class EvenOrOdd {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+    System.out.println("Enter value");
+	int x=sc.nextInt();
+	boolean b=EvenOdd.isEven(x);
+	if (b==true) {
+		System.out.println("even");
+	}
+	else {
+		System.out.println("odd");	
+	}
+}
+}
+===============================================================================================================================================================
+
 
