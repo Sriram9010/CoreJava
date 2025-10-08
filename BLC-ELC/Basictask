@@ -1,1 +1,29 @@
+package BLC;
 
+public class TwoDigitDifference {
+
+	public static int getDiffOfDigits(int a) {
+		int last=0;
+		while(a>9) {
+			last=a%10;
+			a=a/10;
+		}
+		
+		return a-last;
+	}
+}
+------------------------
+package Elc;
+
+import BLC.TwoDigitDifference;
+import java.util.Scanner;
+public class TwoDigit {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+    
+	System.out.println("Enter the value");
+	int x=sc.nextInt();
+	System.out.println(TwoDigitDifference.getDiffOfDigits(x));
+	}
+}
+=================================================================================================================================================================================================================
