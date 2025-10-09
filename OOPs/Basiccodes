@@ -1,1 +1,55 @@
 
+public class Fan {
+String name;
+String coil;
+int wings;
+ public void switchOn() {
+	 System.out.println("Fan name: "+name);
+	 System.out.println("Fan coil is "+coil+"!!");
+	 System.out.println("Number of wings :"+wings+" Only");
+
+ }
+ public void switchOff() {
+	 System.out.println(name+" is Spinning");
+ }
+ public static void main(String[] args) {
+	Fan newfan = new Fan();
+	newfan.name = "Phillips";
+	newfan.coil = "Copper";
+	newfan.wings = 3;
+	
+	newfan.switchOn();
+	newfan.switchOff();
+}
+}
+===============================================================================================================================================================
+
+public class Dog
+{
+    String name;
+    double height;
+    int age;
+
+    public void getDogInformation() {
+        System.out.println("Dog Name   : " + name);
+        System.out.println("Dog Height : " + height + " feet");
+        System.out.println("Dog Age    : " + age + " years");
+    }
+    public void bark() {
+        System.out.println(name + " is barking ");
+    }
+
+    public static void main(String[] args) {
+      
+        Dog myDog = new Dog();
+
+        myDog.name = "Buddy";
+        myDog.height = 2.5;
+        myDog.age = 3;
+
+        myDog.getDogInformation();
+        myDog.bark();
+    }
+}
+===============================================================================================================================================================
+
