@@ -53,3 +53,32 @@ public class Dog
 }
 ===============================================================================================================================================================
 
+public class Car
+{
+    String name;
+    String model;
+    String color;
+
+    public void getDogInformation() {
+        System.out.println("Car Name   : " + name);
+        System.out.println("Car Model name : " + model + " Limited Version Only");
+        System.out.println("Car color    : " + color);
+    }
+    public void drive() {
+        System.out.println("Iam driving my new " +name+ " Faster ");
+    }
+
+    public static void main(String[] args) {
+      
+        Car myCar = new Car();
+
+        myCar.name = "Ford";
+        myCar.model = "Mustang GT";
+        myCar.color = "Red";
+
+        myCar.getDogInformation();
+        myCar.drive();
+    }
+}
+===============================================================================================================================================================
+
