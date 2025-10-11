@@ -12,7 +12,7 @@ public class TwoDigitDifference {
 		return a-last;
 	}
 }
-------------------------
+-----------------------------------------------------------------------------------
 package Elc;
 
 import BLC.TwoDigitDifference;
@@ -38,7 +38,7 @@ public class Calculator {
 		return x-y;
 	}
 }
---------------------------------------------
+--------------------------------------------------------------------------------------------
 package Elc;
 
 import BLC.Calculator;
