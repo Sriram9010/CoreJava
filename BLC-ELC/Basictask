@@ -148,5 +148,39 @@ public static void main(String[] args) {
 }
 }
 ===============================================================================================================================================================
+package BLC;
+
+public class CustomerData {
+ int CsID;
+ String CsName;
+ 
+ public void setCustomerData(int Id, String Name)
+ {
+	 CsID = Id;
+	 CsName = Name;
+ }
+ public void getCustomerInfo()
+ {
+	 System.out.println("The Customer ID :"+CsID);
+	 System.out.println("The Customer Name is :"+CsName);
+ }
+}
+-----------------------------
+package Elc;
+import BLC.CustomerData;
+public class CustomerInfo {
+public static void main(String[] args) {
+	CustomerData Remo = new CustomerData();
+	Remo.setCustomerData(107,"Sriram");
+	Remo.getCustomerInfo();
+	
+	System.out.println("----");
+	
+	CustomerData harsh = new CustomerData();
+	harsh.setCustomerData(108,"Harshitha");
+	harsh.getCustomerInfo();
+}
+}
+===============================================================================================================================================================
 
 
