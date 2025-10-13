@@ -1,1 +1,75 @@
+package BLC;
 
+public class CustomerData {
+ int CsID;
+ String CsName;
+ 
+ public void setCustomerData(int Id, String Name)
+ {
+	 CsID = Id;
+	 CsName = Name;
+ }
+ public void getCustomerInfo()
+ {
+	 System.out.println("The Customer ID :"+CsID);
+	 System.out.println("The Customer Name is :"+CsName);
+ }
+}
+-----------------------------
+package Elc;
+import BLC.CustomerData;
+public class CustomerInfo {
+public static void main(String[] args) {
+	CustomerData Remo = new CustomerData();
+	Remo.setCustomerData(107,"Sriram");
+	Remo.getCustomerInfo();
+	
+	System.out.println("----");
+	
+	CustomerData harsh = new CustomerData();
+	harsh.setCustomerData(108,"Harshitha");
+	harsh.getCustomerInfo();
+}
+}
+===============================================================================================================================================================
+package BLC;
+public class ShopDiscount {
+    public static double calculateDiscount(double billAmount) {
+        double discount;
+        if (billAmount >= 5000) {
+            discount = 0.20;
+        } else if (billAmount >= 3000) {
+            discount = 0.15;
+        } else if (billAmount >= 1000) {
+            discount = 0.10;
+        } else {
+            discount = 0.05;
+        }
+        return billAmount - (billAmount * discount);
+    }
+}
+-----------------------------------------------
+package Elc;
+
+import java.util.Scanner;
+import BLC.ShopDiscount;
+public class ShopCart {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Customer Name :");
+		String name = sc.nextLine();
+		
+		System.out.println("Enter Total Bill Amount :");
+		double bill = Double.parseDouble(sc.nextLine());
+		
+		double finalAmount = ShopDiscount.calculateDiscount(bill);
+		System.out.println("\n------ BILL SUMMARY ------");
+        System.out.println("Customer Name: " + name);
+        System.out.println("Original Bill: " + bill);
+        System.out.println("Amount Payable after Discount: " + finalAmount);
+		
+        sc.close();
+	}    
+}
+===============================================================================================================================================================
