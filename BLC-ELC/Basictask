@@ -113,5 +113,40 @@ public static void main(String[] args) {
 }
 }
 ===============================================================================================================================================================
+package BLC;
+import java.util.*;
+public class EmployeeData {
+ int empNum = 101;
+ String empName = "Ram";
+ double empSalary = 10000.0;
+  
+ public void setEmployeeData() {
+	 Scanner sc = new Scanner(System.in);
+	 System.out.println("Enter Employee Number:");
+	 empNum = Integer.parseInt(sc.nextLine());
+     System.out.println("Enter Employee Name :");
+	 empName = sc.nextLine();
+     System.out.println("Enter Employee Salary :");
+     empSalary = Double.parseDouble(sc.nextLine());
+     sc.close();
+ }
+ public void getEmployeeData() {
+	 System.out.println("The Employee Number:"+empNum);
+	 System.out.println("The Employee Name:"+empName);
+	 System.out.println("The Employee Salary:"+empSalary);
+
+ }
+}
+-----------------------------------------------------------------
+package Elc;
+import BLC.EmployeeData;
+public class EmployeeInfo {
+public static void main(String[] args) {
+	EmployeeData ram = new EmployeeData();
+	ram.setEmployeeData();
+	ram.getEmployeeData();
+}
+}
+===============================================================================================================================================================
 
 
