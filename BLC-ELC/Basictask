@@ -1,5 +1,24 @@
 package BLC;
 
+public class Customer {
+    public static String getCustomerDetails(int id, String name, double bill) {
+        return "[ Id is :" + id + ", Name is :" + name + ", Bill is :" + bill + "]";
+    }
+}
+------------------------------------------------------
+package Elc;
+
+import BLC.Customer;
+
+public class Test {
+    public static void main(String[] args) {
+		String result = Customer.getCustomerDetails(101, "Ram", 599.99);
+		System.out.println(result);
+	} 
+}
+===============================================================================================================================================================
+package BLC;
+
 public class TwoDigitDifference {
 
 	public static int getDiffOfDigits(int a) {
@@ -12,7 +31,7 @@ public class TwoDigitDifference {
 		return a-last;
 	}
 }
------------------------------------------------------------------------------------
+-----------------------------------------------------------
 package Elc;
 
 import BLC.TwoDigitDifference;
