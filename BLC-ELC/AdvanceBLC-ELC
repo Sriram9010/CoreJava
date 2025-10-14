@@ -73,6 +73,66 @@ public class ShopCart {
 	}    
 }
 ===============================================================================================================================================================
+package BLC;
+public class Bank {
+
+    
+    private String customerName;
+    private int accountNumber;
+    private double currentBalance;
+
+    
+    public static String bankName = "HDFC Bank";
+    public static String bankAddress = "Hyderabad, India";
+    public static String bankIFSCCode = "HDFC0001234";
+
+    
+    public void setCustomerDetails(String name, int accNumber, double balance) {
+        if (balance <= 0) {
+            System.out.println("Opening balance must be greater than zero!");
+            System.exit(0);
+        }
+        customerName = name;
+        accountNumber = accNumber;
+        currentBalance = balance;
+    }
+
+    
+    public void withdraw(double amount) {
+        if (amount > currentBalance) {
+            System.out.println("You have insufficient balance");
+            System.exit(0);
+        } else if (amount <= 0) {
+            System.out.println("Withdrawal amount should be greater than zero!");
+            System.exit(0);
+        } else {
+            currentBalance -= amount;
+            System.out.println("Withdrawal successful! ₹" + amount + " debited.");
+        }
+    }
+
+    
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            System.out.println("Deposit amount should be greater than zero!");
+            System.exit(0);
+        } else {
+            currentBalance += amount;
+            System.out.println("Deposit successful! ₹" + amount + " credited.");
+        }
+    }
+
+    
+    public double getCurrentBalance() {
+        return currentBalance;
+    }
+
+    
+    public String displayDetails() {
+        return "Customer [Name=" + customerName + ", AccountNumber=" + accountNumber + ", Balance=" + currentBalance + "]";
+    }
+}
+----------------------------------------------------------------
 package elc;
 
 import java.util.Scanner;
