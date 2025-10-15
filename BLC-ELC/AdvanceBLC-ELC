@@ -197,3 +197,53 @@ public class BankCustomer {
         }
     }
 }
+=========================================================================================================================================================
+package BLC;
+
+public class SalaryData {
+   private int id;
+   private String name;
+   private double salary;
+   
+   public void setEmployeeDetails(int id, String name, double salary) {
+	     this.id = id;
+	     this.name = name;
+	     this.salary = salary;
+    }
+   public void calculateSalaryIncrement() {
+	   double inc;
+	   if(salary <= 50000) {
+		   inc=salary*0.10;	   
+	   }
+	   else if(salary>50000 && salary<=80000){
+		   inc = salary*0.07;  
+	   }
+	   else {
+		   inc = salary*0.05;   
+	   }
+	   salary+=inc;	
+	   System.out.println("Incremented Salary is :"+inc);
+	   System.out.println("Updated Salary: "+salary); 
+   }
+}
+--------------------------------------
+package Elc;
+import BLC.SalaryData;
+import java.util.Scanner;
+public class salaryinfo {
+  public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	SalaryData employee = new SalaryData();
+	
+	System.out.println("Enter Employee ID :");
+	int id = Integer.parseInt(sc.nextLine());
+	System.out.println("Enter Employee Name:");
+	String name = sc.nextLine();
+	System.out.println("Enter Employee Salary:");
+	double salary = Double.parseDouble(sc.nextLine());
+	
+	employee.setEmployeeDetails(id, name, salary);
+	employee.calculateSalaryIncrement();
+}
+}
+=========================================================================================================================================================
