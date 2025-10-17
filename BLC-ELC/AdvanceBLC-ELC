@@ -226,7 +226,7 @@ public class SalaryData {
 	   System.out.println("Updated Salary: "+salary); 
    }
 }
------------------------------------------------
+------------------------------------------------
 package Elc;
 import BLC.SalaryData;
 import java.util.Scanner;
@@ -244,6 +244,7 @@ public class salaryinfo {
 	
 	employee.setEmployeeDetails(id, name, salary);
 	employee.calculateSalaryIncrement();
-}
+ }
 }
 =========================================================================================================================================================
+
