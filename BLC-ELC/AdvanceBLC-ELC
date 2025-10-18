@@ -23,7 +23,7 @@ public static void main(String[] args) {
 	CustomerData Remo = new CustomerData();
 	Remo.setCustomerData(107,"Sriram");
 	Remo.getCustomerInfo();
-	
+
 	System.out.println("----");
 	
 	CustomerData harsh = new CustomerData();
