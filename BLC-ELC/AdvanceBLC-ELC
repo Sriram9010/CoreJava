@@ -24,8 +24,7 @@ public static void main(String[] args) {
 	Remo.setCustomerData(107,"Sriram");
 	Remo.getCustomerInfo();
 
-	System.out.println("----");
-	
+	System.out.println("----");	
 	CustomerData harsh = new CustomerData();
 	harsh.setCustomerData(108,"Harshitha");
 	harsh.getCustomerInfo();
