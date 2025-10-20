@@ -1,9 +1,7 @@
 package BLC;
-
 public class CustomerData {
  int CsID;
- String CsName;
- 
+ String CsName; 
  public void setCustomerData(int Id, String Name)
  {
 	 CsID = Id;
