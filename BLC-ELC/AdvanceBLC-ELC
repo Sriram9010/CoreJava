@@ -244,4 +244,57 @@ public class salaryinfo {
  }
 }
 =========================================================================================================================================================
+package BLC;
+
+public class LoanInfo {
+  private double principal;
+  private double interestRate; 
+  private int durationMonths;
+  
+  public LoanInfo(double principal,double interestRate,int durationMonths) {
+	  if(principal <=0 || interestRate <=0 || durationMonths <=0) {
+		  System.err.println("error");
+		  System.exit(0);
+	  }
+	  this.principal = principal;
+	  this.interestRate = interestRate;
+	  this.durationMonths = durationMonths;
+  }
+  public double getPrincipal(){
+	  return principal;
+  }
+  public double getinterestRate() {
+	  return interestRate;
+  }
+  public int getdurationMonths() {
+	  return durationMonths;
+  }
+}
+----------------------------------------------------
+package Elc;
+
+import java.util.Scanner;
+import BLC.LoanInfo;
+public class LoanData {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		
+		System.out.println("Enter Loan Amount :");
+		double principal = Double.parseDouble(sc.nextLine());
+		System.out.println("Enter Interest Rate ");
+		double interestRate = Double.parseDouble(sc.nextLine());
+		System.out.println("Enter number of months for Loan :");
+		int durationMonths = Integer.parseInt(sc.nextLine()); 
+		
+		LoanInfo loan = new LoanInfo(principal,interestRate,durationMonths);
+		
+		System.out.println("principal :"+loan.getPrincipal());
+		System.out.println("Interest Rate (Yearly %)"+loan.getinterestRate());
+		System.out.println("Duration (months):"+loan.getdurationMonths());
+		
+	}
+}
+=========================================================================================================================================================
 
