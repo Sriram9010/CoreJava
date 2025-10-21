@@ -293,4 +293,110 @@ public class LoanData {
 	}
 }
 =========================================================================================================================================================
+package BLC;
+
+public class InventoryInfo {
+   
+    private String itemName;
+    private double pricePerUnit;
+    private int quantityInStock;
+
+    
+    public InventoryInfo(String itemName, double pricePerUnit, int quantityInStock) {
+        this.itemName = itemName;
+        this.pricePerUnit = pricePerUnit;
+        this.quantityInStock = quantityInStock;
+    }
+
+    
+    public String getItemName() {
+        return itemName;
+    }
+
+    public double getPricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setPricePerUnit(double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    
+    public double calculateTotalValue() {
+        return pricePerUnit * quantityInStock;
+    }
+}
+---------------------------------------------------------
+package Elc;
+
+import java.util.Scanner;
+import BLC.InventoryInfo; // Import the BLC class
+
+public class InventoryData {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input item details
+        System.out.print("Enter Item Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Price Per Unit: ");
+        double price = sc.nextDouble();
+
+        System.out.print("Enter Quantity In Stock: ");
+        int quantity = sc.nextInt();
+
+        
+        InventoryInfo item = new InventoryInfo(name, price, quantity);
+
+      
+        System.out.println("\nInventory Item Details:");
+        System.out.println("Item Name: " + item.getItemName());
+        System.out.println("Price Per Unit: " + item.getPricePerUnit());
+        System.out.println("Quantity in Stock: " + item.getQuantityInStock());
+        System.out.printf("Total Inventory Value: %.2f%n", item.calculateTotalValue());
+
+        
+        System.out.print("Any updation in Stock Price OR Quantity :");
+        sc.nextLine(); 
+        String updateChoice = sc.nextLine();
+
+        if (updateChoice.equalsIgnoreCase("YES")) {
+            System.out.print("Enter New Price Per Unit :");
+            double newPrice = sc.nextDouble();
+
+            System.out.print("Enter New Quantity In Stock: ");
+            int newQuantity = sc.nextInt();
+
+            
+            item.setPricePerUnit(newPrice);
+            item.setQuantityInStock(newQuantity);
+
+            
+            System.out.println("\nUpdated Inventory Item Details:");
+            System.out.println("Item Name: " + item.getItemName());
+            System.out.println("Price Per Unit: " + item.getPricePerUnit());
+            System.out.println("Quantity in Stock: " + item.getQuantityInStock());
+            System.out.printf("Total Inventory Value: %.2f%n", item.calculateTotalValue());
+        } else {
+            System.exit(0); 
+        }
+
+        sc.close();
+    }
+}
+=========================================================================================================================================================
 
