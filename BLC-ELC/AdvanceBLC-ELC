@@ -271,15 +271,12 @@ public class LoanInfo {
 }
 ----------------------------------------------------
 package Elc;
-
 import java.util.Scanner;
 import BLC.LoanInfo;
 public class LoanData {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
-		
 		System.out.println("Enter Loan Amount :");
 		double principal = Double.parseDouble(sc.nextLine());
 		System.out.println("Enter Interest Rate ");
