@@ -47,7 +47,6 @@ public class ShopDiscount {
 }
 -----------------------------------------------
 package Elc;
-
 import java.util.Scanner;
 import BLC.ShopDiscount;
 public class ShopCart {
