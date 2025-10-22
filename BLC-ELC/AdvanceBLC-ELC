@@ -399,4 +399,60 @@ public class InventoryData {
     }
 }
 =========================================================================================================================================================
+package BLC;
+public class StudentBlc {
+	private String name;
+	private int age;
+	private String  grade;
+	public StudentBlc(String name, int age, String grade) {
+		
+		this.name = name;
+		this.age = age;
+		this.grade = grade;
+	}
+	public static StudentBlc createStudentObject(String name,int age,String grade) {
+		StudentBlc s1= new StudentBlc(name,age,grade);
+		return s1;
+		//return new StudentBlc(name,age,grade);
+	}
+	
+	public String toString() {
+		return "StudentBlc [name=" + name + ", age=" + age + ", grade=" + grade + "]";
+	}
+	
+}
+---------------------------------------
+package Elc;
+import java.util.Scanner;
+import BLC.StudentBlc;
+public class StudentElc {
+  public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);	
+	while(true) {
+		System.out.println("Enter Student name :");
+		String name = sc.nextLine();
+		System.out.println("Enter Student age :");
+		int age = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Student grade :");
+		String grade = sc.nextLine();
+		StudentBlc s1 = StudentBlc.createStudentObject(name, age, grade);
+	    System.out.println("\t"+s1.toString());
+		String choice = sc.nextLine();
+		if (choice.equalsIgnoreCase("no")) {
+            System.out.println("Exiting program...");
+            break;
+        }
+	}
+	sc.close();
+}
+}
+=========================================================================================================================================================
+
+
+
+
+
+
+
 
