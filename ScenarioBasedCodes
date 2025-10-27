@@ -117,6 +117,199 @@ public class StudentGradeCalculator {
     }
 }
 ========================================================================================================================
+package BLC;
 
+public class Employee {
+   private int employeeId;
+   private String employeeName;
+   private double basicSalary;
+   private double HRAPer;
+   private double DAPer;
+   
+ public Employee(int employeeId,String employeeName,double basicSalary,double HRAPer,double DAPer) {
+	 this.employeeId = employeeId;
+	 this.employeeName = employeeName;
+	 this.basicSalary = basicSalary;
+	 this.HRAPer = HRAPer;
+	 this.DAPer = DAPer;	 
+ }
+ public double calculateGrossSalary() {
+	return basicSalary +HRAPer +DAPer;
+ }
+ public String getEmployeeName() {
+	 return employeeName;
+ }
+}
+----------
+package BLC;
+
+public class Manager {
+    private int managerId;
+    private String managerName;
+    private double basicSalary;
+    private double HRAPer;
+    private double DAPer;
+    private double projectAllowance;
+    
+ public Manager(int managerId,String managerName,double basicSalary,double HRAPer,double DAPer,double projectAllowance) {
+	 this.managerId = managerId;
+	 this.managerName = managerName;
+	 this.basicSalary = basicSalary;
+	 this.HRAPer = HRAPer;
+	 this.DAPer = DAPer;
+	 this.projectAllowance = projectAllowance;
+ }
+ public double calculateGrossSalary() {
+	 return basicSalary +HRAPer +DAPer + projectAllowance;
+ }
+ public String getManagerName() {
+	 return managerName;
+ }
+}
+----------------
+package BLC;
+
+public class Trainer {
+  private int trainerId;
+  private String trainerName ;
+  private double basicSalary ;
+  private double HRAPer ;
+  private double DAPer ;
+  private int batchCount;
+  private double perkPerBatch;
+  
+  public Trainer(int trainerId, String trainerName, double basicSalary, double HRAPer, double DAPer, int batchCount, double perkPerBatch) {
+	  this.trainerId = trainerId;
+      this.trainerName = trainerName;
+      this.basicSalary = basicSalary;
+      this.HRAPer = HRAPer;
+      this.DAPer = DAPer;
+      this.batchCount = batchCount;
+      this.perkPerBatch = perkPerBatch;
+  }
+  public double calculateGrossSalary() {
+	  return basicSalary +HRAPer +DAPer +(batchCount * perkPerBatch);
+  }
+  public String getTrainerName() {
+		 return trainerName;
+	 }
+}
+---------
+package BLC;
+
+public class Sourcing {
+	private int sourceId;
+    private String sourceName;
+    private double basicSalary;
+    private double HRAPer;
+    private double DAPer;
+    private int enrollmentTarget;
+    private int enrollmentReached;
+    private double perkPerEnrollment;
+    
+    public Sourcing(int sourceId, String sourceName, double basicSalary, double HRAPer, double DAPer,
+            int enrollmentTarget, int enrollmentReached, double perkPerEnrollment) {
+    	     this.sourceId = sourceId;
+         this.sourceName = sourceName;
+         this.basicSalary = basicSalary;
+         this.HRAPer = HRAPer;
+         this.DAPer = DAPer;
+         this.enrollmentTarget = enrollmentTarget;
+         this.enrollmentReached = enrollmentReached;
+         this.perkPerEnrollment = perkPerEnrollment;
+    }
+    public double calculateGrossSalary() {
+    	  return basicSalary +HRAPer +DAPer +(((enrollmentReached/enrollmentTarget)*100)*perkPerEnrollment);
+    }
+    public String getSourceName() {
+		 return sourceName;
+	 }
+}
+
+------------
+package BLC;
+
+public class TaxUtil {
+   public double calculateTax(Employee e) {
+	   double salary = e.calculateGrossSalary();
+	   double tax;
+	   if(salary > 50000) {
+		   tax = salary * 0.20;
+	   }
+	   else {
+		   tax = salary *0.5;
+	   }
+      return salary += tax;
+   }
+   public double calculateTax(Manager m) {
+	   double salary = m.calculateGrossSalary();
+	   double tax;
+	   if(salary > 50000) {
+		   tax = salary * 0.20;
+	   }
+	   else {
+		   tax = salary *0.5;
+	   }
+      return salary += tax;
+   }
+   public double calculateTax(Trainer t) {
+	   double salary = t.calculateGrossSalary();
+	   double tax;
+	   if(salary > 50000) {
+		   tax = salary * 0.20;
+	   }
+	   else {
+		   tax = salary *0.5;
+	   }
+      return salary += tax;
+   }
+   public double calculateTax(Sourcing s) {
+	   double salary = s.calculateGrossSalary();
+	   double tax;
+	   if(salary > 50000) {
+		   tax = salary * 0.20;
+	   }
+	   else {
+		   tax = salary *0.5;
+	   }
+      return salary += tax;
+   }
+}
+-------------------------------
+package Elc;
+
+import BLC.Employee;
+import BLC.Manager;
+import BLC.Sourcing;
+import BLC.TaxUtil;
+import BLC.Trainer;
+
+public class TaxCalculation {
+    public static void main(String[] args) {
+        TaxUtil taxUtil = new TaxUtil();
+        
+        Employee emp = new Employee(101, "Ram", 30000, 5000, 4000);
+        Manager mgr = new Manager(102, "Sri", 45000, 6000, 5000, 8000);
+        Trainer tr = new Trainer(103, "Arun", 25000, 4000, 3000, 5, 2000);
+        Sourcing src = new Sourcing(104, "Ramp", 20000, 3000, 2000, 100, 80, 100);
+
+        System.out.println("Employee: " + emp.getEmployeeName() +
+                " | Gross Salary: " + emp.calculateGrossSalary() +
+                " | Tax: " + taxUtil.calculateTax(emp));
+
+        System.out.println("Manager: " + mgr.getManagerName() +
+                " | Gross Salary: " + mgr.calculateGrossSalary() +
+                " | Tax: " + taxUtil.calculateTax(mgr));
+
+        System.out.println("Trainer: " + tr.getTrainerName() +
+                " | Gross Salary: " + tr.calculateGrossSalary() +
+                " | Tax: " + taxUtil.calculateTax(tr));
+
+        System.out.println("Sourcing: " + src.getSourceName() +
+                " | Gross Salary: " + src.calculateGrossSalary() +
+                " | Tax: " + taxUtil.calculateTax(src));
+    }
+}
+===============================================================================================================================================================
 
 
