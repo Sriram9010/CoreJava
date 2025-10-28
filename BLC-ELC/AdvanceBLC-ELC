@@ -359,33 +359,25 @@ public class InventoryData {
         System.out.print("Enter Quantity In Stock: ");
         int quantity = sc.nextInt();
 
-        
-        InventoryInfo item = new InventoryInfo(name, price, quantity);
 
+        InventoryInfo item = new InventoryInfo(name, price, quantity);
       
         System.out.println("\nInventory Item Details:");
         System.out.println("Item Name: " + item.getItemName());
         System.out.println("Price Per Unit: " + item.getPricePerUnit());
         System.out.println("Quantity in Stock: " + item.getQuantityInStock());
         System.out.printf("Total Inventory Value: %.2f%n", item.calculateTotalValue());
-
         
         System.out.print("Any updation in Stock Price OR Quantity :");
         sc.nextLine(); 
         String updateChoice = sc.nextLine();
-
         if (updateChoice.equalsIgnoreCase("YES")) {
             System.out.print("Enter New Price Per Unit :");
             double newPrice = sc.nextDouble();
-
             System.out.print("Enter New Quantity In Stock: ");
             int newQuantity = sc.nextInt();
-
-            
             item.setPricePerUnit(newPrice);
             item.setQuantityInStock(newQuantity);
-
-            
             System.out.println("\nUpdated Inventory Item Details:");
             System.out.println("Item Name: " + item.getItemName());
             System.out.println("Price Per Unit: " + item.getPricePerUnit());
