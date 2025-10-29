@@ -440,6 +440,86 @@ public class StudentElc {
 }
 }
 =========================================================================================================================================================
+package BLC;
+
+public class StudentCalculator {
+  private String name;
+  private double attendance;
+  private double examMarks;
+  private double labMarks;
+  private double taskMarks;
+ 
+  public StudentCalculator(String name,double attendance,double examMarks,double labMarks,double taskMarks) {
+	  if(attendance>=100 || examMarks>=100 || labMarks>=100 || taskMarks>=100) {
+		  System.out.println("Error! Marks should be less than 100");
+		  System.exit(0);
+	  }
+	  this.name = name;
+	  this.attendance = attendance;
+	  this.examMarks = examMarks;
+	  this.labMarks = labMarks;
+	  this.taskMarks = taskMarks;
+	  
+  }
+  
+  public double overallPerformance() {
+	  return (attendance + examMarks + labMarks + taskMarks)/4;  
+  }
+  
+  public String grade() {
+	  if(overallPerformance()>=90) 
+		  return "A+";
+	  
+	  else if(overallPerformance()>=80)
+		  return "A";
+	  
+	  else
+		  return "fail";      
+   }
+	  
+   public String eligible(){
+	   if(overallPerformance()>=60) 
+		   return "Eligible";
+	   
+	   else 
+		   return "NOt eligible";   
+   }
+   
+   public String total(){
+	   System.out.println("Student Name: "+name);
+	   System.out.println("Attendance: "+attendance);
+	   System.out.println("Exam Marks: "+examMarks);
+	   System.out.println("Lab Performance: "+labMarks);
+	   System.out.println("Daily Task: "+taskMarks);
+	   System.out.println("Overall Percentage: "+overallPerformance());
+	   System.out.println("Grade: "+grade());
+//	   System.out.println();
+	   return "Eligibility: "+eligible();
+	   
+   }
+  }
+---------------------------------
+package Elc;
+import java.util.*;
+
+import BLC.StudentCalculator;
+
+public class Student {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String name = "Ram";
+		double attendance = 89;
+		double examMarks = 75;
+		double labMarks = 80;
+		double taskMarks = 85;
+		
+		StudentCalculator st = new StudentCalculator(name,attendance,examMarks,labMarks,taskMarks);
+		System.out.println(st.total());
+	}
+
+}
+=========================================================================================================================================================
 
 
 
