@@ -75,6 +75,92 @@ class MinMax {
     }
 }
 ===============================================================================================================================
+import java.util.Scanner;
+class PrimeNumbersInArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of elements in the array: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int count = 0; // to check if any prime number found
+
+        for (int i = 0; i < n; i++) {
+            int num = arr[i];
+            int flag = 0; // flag = 0 means prime
+
+            if (num <= 1)
+                flag = 1; // not prime
+            else {
+                for (int j = 2; j <= num / 2; j++) {
+                    if (num % j == 0) {
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+
+            if (flag == 0) { // prime number
+                System.out.print(num + " ");
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("No Prime Numbers Found.");
+        }
+
+        sc.close();
+    }
+}
+===============================================================================================================================
+import java.util.Scanner;
+import java.util.Arrays;
+
+class InsertElement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Step 1: Input array size
+        System.out.print("Enter size of the array: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        // Step 2: Input array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Step 3: Input element to insert
+        System.out.print("Enter element to insert: ");
+        int element = sc.nextInt();
+
+        // Step 4: Create new array with +1 size
+        int[] newArr = new int[n + 1];
+
+        // Copy old elements
+        for (int i = 0; i < n; i++) {
+            newArr[i] = arr[i];
+        }
+
+        // Add new element at the end
+        newArr[n] = element;
+
+        // Step 5: Print before and after arrays
+        System.out.println("Before: " + Arrays.toString(arr));
+        System.out.println("After: " + Arrays.toString(newArr));
+
+        sc.close();
+    }
+}
 
 
 
