@@ -1,1 +1,92 @@
+package BLC;
 
+public class StudentArrayDemo {
+       private int id;
+       private String name;
+       private double marks;
+       
+       public StudentArrayDemo(int id,String name,double marks){
+    	       this.id = id;
+    	       this.name = name; 
+    	       this.marks = marks;
+       }
+
+	   @Override
+	   public String toString() {
+		return "StudentBlc [id=" + id + ", name=" + name + ", marks=" + marks + "]";
+	   }
+       
+}
+-----------------------------
+package Elc;
+import java.util.*;
+import BLC.StudentArrayDemo;
+public class StudentArrayElcDemo {
+    public static void main(String args[]) {
+    	StudentArrayDemo[] students = new StudentArrayDemo[3];
+    	    
+    	    students[0] = new StudentArrayDemo(101,"ram",72);
+    	    students[1] = new StudentArrayDemo(102,"srinu",98.5);
+    	    students[2] = new StudentArrayDemo(103,"gopi",64);
+    	    
+    	    for(StudentArrayDemo s : students) 
+    	    {
+    	    	   System.out.println(s);
+    	    }
+    }
+}
+===============================================================================================================================================================
+package BLC;
+
+public class EmployeeArrayblc {
+	private int id;
+    private String name;
+    private double salary;
+    
+    public EmployeeArrayblc(int id,String name,double salary){
+ 	       this.id = id;
+ 	       this.name = name; 
+ 	       this.salary = salary;
+    }
+
+	@Override
+	public String toString() {
+		return "EmployeeArrayblc [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+	}
+        
+}
+--------------------------------------------
+package Elc;
+import java.util.Scanner;
+
+import BLC.EmployeeArrayblc;
+public class EmployeeArrayElc {
+    public static void main(String args[]) {
+    	 Scanner sc = new Scanner(System.in);
+    	 
+    	 System.out.println("Enter number of employees: ");
+    	 int size = Integer.parseInt(sc.nextLine());
+    	 
+    	 EmployeeArrayblc e[] = new EmployeeArrayblc[size];
+    	   
+    	 for(int i=0;i<size;i++) {
+    		 System.out.println("Enter ID: ");
+    		 int id = Integer.parseInt(sc.nextLine());
+    		 
+    		 System.out.println("Enter Name: ");
+    		 String name = sc.nextLine();
+    		 
+    		 System.out.println("Enter Salary:");
+    		 double salary = Double.parseDouble(sc.nextLine());
+    		 
+    		 e[i] = new EmployeeArrayblc(id,name,salary);
+    	 }
+    	 
+    	 System.out.println("Enter details for Employee :");
+    	 for(EmployeeArrayblc emp : e) 
+    	 {
+    		 System.out.println(emp);
+    	 }
+    }
+}
+===============================================================================================================================================================
