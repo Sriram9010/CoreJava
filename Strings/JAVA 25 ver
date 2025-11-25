@@ -1,0 +1,12 @@
+import java.util.*;
+public class reverseString{
+    Scanner sc = new Scanner(System.in);
+    void main(){
+      String st = sc.nextLine();
+      String reverse = "";
+      StringBuffer sb = new StringBuffer(st);
+      IO.println("Reversed String: "+sb.reverse());
+    }     
+}
+
+  
