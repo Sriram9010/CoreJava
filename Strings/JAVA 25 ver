@@ -38,5 +38,17 @@ class RemoveAlphabet{
     
 }
 ============================================================================================================
-
-  
+import java.util.*;
+public class SortString{
+    public static void main(String args[]){
+    Scanner sc = new Scanner(System.in);
+    String str = sc.next();
+    char[] arr = str.toCharArray(); 
+    Arrays.sort(arr);
+    String sorted = new String(arr);
+    System.out.println(sorted);
+    sc.close();
+    }
+    
+}
+  ============================================================================================================
