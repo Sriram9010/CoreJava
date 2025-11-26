@@ -52,3 +52,29 @@ public class SortString{
     
 }
   ============================================================================================================
+import java.util.Scanner;
+public class Frequency{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int[] frq = new int[str.length()];
+        int i,j;
+        char string[] = str.toCharArray();
+
+        for(i=0;i<str.length();i++){
+            frq[i] = 1;
+        for(j=i+1;j<str.length();j++){
+            if(string[i] == string[j]){
+                frq[i]++;
+            string[j] = '0';
+            }
+        }
+        }
+        for(i=0;i<str.length();i++){
+            if(string[i] !='0' && string[i] != ' '){
+                System.out.println(string[i] + ":" +frq[i]);
+            }
+        }
+    }
+}
+============================================================================================================
