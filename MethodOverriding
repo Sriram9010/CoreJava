@@ -107,3 +107,92 @@ class FixedDepositAccount extends BankAccount{
         System.out.println("Fixed Deposit Interest for 5 years RS :"+interest);
     }
 }
+============================================================================================================================
+
+import java.util.Scanner;
+
+public class PaymentProcessing {
+
+    public static void paymentGateway(Payment... payments) {
+
+        System.out.println("------ Payment Gateway Started ------");
+
+        for (Payment p : payments) {
+            p.processPayment();  
+        }
+
+        System.out.println("------ Payment Gateway Completed ------");
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+     
+        System.out.println("1. Credit Card Payment");
+        System.out.println("2. Debit Card Payment");
+        System.out.println("3. UPI Payment");
+        System.out.println("4. All Payments");
+        System.out.print("Enter your choice: ");
+
+        int choice = sc.nextInt();
+
+        switch (choice) {
+
+            case 1:
+                paymentGateway(new CreditCardPayment());
+                break;
+
+            case 2:
+                paymentGateway(new DebitCardPayment());
+                break;
+
+            case 3:
+                paymentGateway(new UPIPayment());
+                break;
+
+            case 4:
+                paymentGateway(
+                        new CreditCardPayment(),
+                        new DebitCardPayment(),
+                        new UPIPayment()
+                );
+                break;
+
+            default:
+                System.out.println("Invalid choice!");
+        }
+
+        sc.close();
+    }
+}
+
+
+class Payment {
+    public void processPayment() {
+        System.out.println("Processing payment...");
+    }
+}
+
+
+class CreditCardPayment extends Payment {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing Credit Card payment...");
+    }
+}
+
+class DebitCardPayment extends Payment {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing Debit Card payment...");
+    }
+}
+
+
+class UPIPayment extends Payment {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing UPI payment...");
+    }
+}
