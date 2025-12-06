@@ -372,5 +372,130 @@ public class VIPCustomer extends Customer {
         System.out.println("Final amount RS :" + finalAmount);
     }
 }
- 
+ ======================================================================================================================================
+import java.util.Scanner;
+public class ReverseMain{
+   public static void main(String args[]){
+    Scanner sc = new Scanner(System.in);
+    String s = sc.nextLine();
+    Type stringobj = new StringType(s);
+    stringobj.reverse();
+
+    int n = sc.nextInt();
+    Type intobj = new IntegerType(n);
+    intobj.reverse();
+
+    sc.close();
+   }
+}
+abstract class Type{
+    abstract void reverse();
+    
+}
+class StringType extends Type{
+    private String str;
+    StringType(String str){
+        this.str = str;
+    }
+    void reverse(){
+        StringBuilder sb = new StringBuilder(str);
+        System.out.println("Reversed String: "+sb.reverse());
+    }
+}
+class IntegerType extends Type{
+  private int num;
+
+  IntegerType(int num){
+    this.num = num;
+  }
+  void reverse(){
+    int reversed = 0;
+    int res = num;
+    while(num != 0){
+        int digit = num%10;
+        reversed = reversed*10 +digit;
+        num/=10;
+    }
+    System.out.println("Reversed Integer Digits: "+reversed);
+  }
+}
+===============================================================================================================================
+import java.util.Scanner;
+public class ShapeMain{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        double side = sc.nextDouble();
+        Square sq = new Square(side);
+
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        double c = sc.nextDouble();
+        triangle tr = new triangle(a,b,c);
+
+        System.out.println("Square Area: "+sq.area());
+        System.out.println("Square Perimeter: "+sq.perimeter());
+        System.out.println("");
+        System.out.println("Triangle Area: "+tr.area());
+        System.out.println("Triangle Perimeter: "+tr.perimeter());
+    }
+}
+abstract class shape{
+    abstract double area();
+    abstract double perimeter();
+}
+class Square extends shape{
+    double side;
+    Square(double side){
+        this.side = side; 
+    }
+    double area(){
+        return side*side;
+    }
+    double perimeter(){
+        return 4*side;
+    }
+}
+class triangle extends shape{
+    double a,b,c;
+    triangle(double a,double b,double c){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+    double area(){
+        double s = (a+b+c)/2;
+        return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+    }
+    double perimeter(){
+        return a+b+c;
+    }
+}
+====================================================================================================================================
+import java.util.Scanner;
+public class override{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+
+        String inp = sc.nextLine();
+
+        Super sp = new Super();
+        sp.process(inp);
+
+        Sub subclass = new Sub();
+        subclass.process(inp);
+        sc.close();        
+    }
+}
+class Super{
+   void process(String input){
+        System.out.println("Superclass processing: "+input.toUpperCase());
+   }
+}
+class Sub extends Super{
+    void process(String input){
+    System.out.println("Subclass processing: "+input.replace(" ","_"));
+    }
+}
+======================================================================================================================
 
