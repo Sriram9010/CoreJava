@@ -465,7 +465,9 @@ class triangle extends shape{
     }
     double area(){
         double s = (a+b+c)/2;
-        return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+
+        //return Math.sqrt(s*(s-a)*(s-b)*(s-c));//
+
     }
     double perimeter(){
         return a+b+c;
