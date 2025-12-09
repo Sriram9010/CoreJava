@@ -4,6 +4,7 @@ import java.util.Scanner;
 import code.Product;
 import code.DigitalProduct;
 import code.PhysicalProduct;
+
 public class ProductStore {
 
     public static void main(String[] args) {
@@ -16,9 +17,7 @@ public class ProductStore {
 
         int choice = sc.nextInt();
         sc.nextLine();  
-
-        try {
-
+        
             switch (choice) {
 
                 case 1:
@@ -79,13 +78,8 @@ public class ProductStore {
                     System.out.println("Invalid choice.");
             }
 
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        sc.close();
+        }   
     }
-}
 ----------------------------------------
 package code;
 
