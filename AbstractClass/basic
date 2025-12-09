@@ -1,38 +1,190 @@
+package code;
+
 import java.util.Scanner;
+import code.Product;
+import code.DigitalProduct;
+import code.PhysicalProduct;
+public class ProductStore {
 
-interface Payable {
-    void pay(double amount);
-}
-
-public class Assignment01 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter amount to pay:");
-        double amount = sc.nextDouble();
+        System.out.println("Select Product Type:");
+        System.out.println("1. Digital Product");
+        System.out.println("2. Physical Product");
 
-        // Employee payment using anonymous inner class
-        Payable employee = new Payable() {
-            @Override
-            public void pay(double amount) {
-                System.out.println("Employee Payment Processing...");
-                System.out.println("Amount Paid: " + amount);
+        int choice = sc.nextInt();
+        sc.nextLine();  
+
+        try {
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Digital Product Name :");
+                    String dName = sc.nextLine();
+
+                    System.out.print("Enter Product Price :");
+                    double dPrice = sc.nextDouble();
+                    sc.nextLine();
+
+                    System.out.print("Enter Product Category :");
+                    String dCat = sc.nextLine();
+
+                    System.out.print("Enter Product License Key :");
+                    String key = sc.nextLine();
+
+                    DigitalProduct dp = new DigitalProduct(dName, dPrice, dCat);
+
+                    System.out.println(dp);
+
+                    System.out.println("Enter the discount % on final bill");
+                    double dpDisc = sc.nextDouble();
+
+                    dp.applyDiscount(dpDisc);
+
+                    System.out.println("Tax RS : " + dp.calculateTax());
+                    break;
+
+
+                case 2:
+                    System.out.print("Enter Physical Product Name :");
+                    String pName = sc.nextLine();
+
+                    System.out.print("Enter Product Price :");
+                    double pPrice = sc.nextDouble();
+                    sc.nextLine();
+
+                    System.out.print("Enter Product Category :");
+                    String pCat = sc.nextLine();
+
+                    System.out.print("Enter Product weight :");
+                    double weight = sc.nextDouble();
+
+                    PhysicalProduct pp = new PhysicalProduct(pName, pPrice, pCat, weight);
+
+                    System.out.println(pp);
+
+                    System.out.println("Enter the discount % on final bill");
+                    double pDisc = sc.nextDouble();
+
+                    pp.applyDiscount(pDisc);
+
+                    System.out.println("Tax RS :" + pp.calculateTax());
+                    System.out.println("Shipping Cost RS :" + pp.calculateShippingCost());
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
             }
-        };
 
-        // Contractor payment using anonymous inner class
-        Payable contractor = new Payable() {
-            @Override
-            public void pay(double amount) {
-                System.out.println("Contractor Payment Processing...");
-                System.out.println("Amount Paid: " + amount);
-            }
-        };
-
-        employee.pay(amount);
-        contractor.pay(amount);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
         sc.close();
     }
 }
+----------------------------------------
+package code;
+
+public abstract class Product {
+    private String name;
+    private double price;
+    private String category;
+		
+ public Product(String name,double price,String category) {
+	 this.name = name;
+	 this.price = price;
+	 this.category = category;
+ }
+	public abstract double calculateTax();
+	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + ", category=" + category + "]";
+	}
+//	public void applyDiscount(double percentage) {
+//		
+//		
+//	}	
+}
+------------------------------------------
+package code;
+import code.Product;
+public class DigitalProduct extends Product{
+private String licenseKey;
+ public DigitalProduct(String name,double price,String licenseKey) {
+	 super(name,price,licenseKey);
+	 this.licenseKey = licenseKey;
+ }
+ public void applyDiscount(double percentage) {
+	 double discount = (getPrice() * percentage) / 100;
+     double newPrice = getPrice() - discount;
+     
+     setPrice(newPrice);
+     System.out.println("Discount applied :"+discount);
+     System.out.println("Updated price :"+newPrice);
+ }
+   public double calculateTax() {
+	   return getPrice()*0.05;
+   }
+   public String toString() {
+       return "Digital Product :\n" +super.toString() +"\nLicense Key: " + licenseKey;
+                
+   }
+}
+-----------------------------------------------------
+package code;
+import code.DigitalProduct;
+import code.Product;
+public class PhysicalProduct extends Product {
+
+    private double shippingWeight;
+
+    public PhysicalProduct(String name, double price, String category, double shippingWeight) {
+
+        super(name, price, category);
+
+        if (shippingWeight <= 0) {
+            throw new IllegalArgumentException("Shipping weight must be positive.");
+        }
+
+        this.shippingWeight = shippingWeight;
+    }
+
+    public void applyDiscount(double percentage) {
+
+        double discount = (getPrice() * percentage) / 100;
+        double newPrice = getPrice() - discount;
+
+        setPrice(newPrice);
+
+        System.out.println("Discount applied :" + discount);
+        System.out.println("New Price :" + newPrice);
+    }
+
+    @Override
+    public double calculateTax() {
+        return getPrice() * 0.08; // 8%
+    }
+
+    public double calculateShippingCost() {
+        return shippingWeight * 5;  // 5 Rs per kg
+    }
+
+    @Override
+    public String toString() {
+        return "Physical Product:\n" +
+                super.toString() +
+                "\nShipping Weight: " + shippingWeight + " kg";
+    }
+}
+
