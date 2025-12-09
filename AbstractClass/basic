@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+interface Payable {
+    void pay(double amount);
+}
+
+public class Assignment01 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter amount to pay:");
+        double amount = sc.nextDouble();
+
+        // Employee payment using anonymous inner class
+        Payable employee = new Payable() {
+            @Override
+            public void pay(double amount) {
+                System.out.println("Employee Payment Processing...");
+                System.out.println("Amount Paid: " + amount);
+            }
+        };
+
+        // Contractor payment using anonymous inner class
+        Payable contractor = new Payable() {
+            @Override
+            public void pay(double amount) {
+                System.out.println("Contractor Payment Processing...");
+                System.out.println("Amount Paid: " + amount);
+            }
+        };
+
+        employee.pay(amount);
+        contractor.pay(amount);
+
+        sc.close();
+    }
+}
