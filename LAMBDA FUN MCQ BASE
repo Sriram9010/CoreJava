@@ -1,3 +1,17 @@
+==================================================================================================================================
+Normal way:
+---------------
+NIT obj = new NIT() {
+    public void show() {
+        System.out.println("Hello");
+    }
+};
+-----------------
+Lambda way:
+-----------------
+NIT obj = () -> System.out.println("Hello");
+Both are SAME.
+==================================================================================================================================
 
 1.Choose the correct output of the following program
 interface Drawable
@@ -10,7 +24,11 @@ public class FunctionalInterface {
 	   () -> System.out.println("Drawing...");	
 	}
 }
-
+----->> 
+A lambda expression must be assigned to a functional interface.
+Here the lambda () -> System.out.println("Drawing...") is written alone, without being stored anywhere.
+Java will still compile, but it is never executed.
+----------------------------------------------------------
 2.What is the output of the following snippet
 
 interface Runnable
@@ -25,8 +43,12 @@ public class FunctionalInterfaceExample
 		nit.run();
 	}
 }
-
-
+----->>
+Runnable is a functional interface with method run().
+nit.run() calls the lambda
+And we are calling run().
+Output > Thread Started
+----------------------------------------------------------
 3. What is the output of the following code
 interface Course
 {
@@ -46,8 +68,14 @@ public class FunctionalInterfaceExample
 		System.out.println(nit.nit("Java"));
 	}
 }
+----->>
+Even though NIT inherits 3 abstract methods from Course, only one abstract method is considered because:
+This lambda returns the input string.
 
-
+Lambda returns whatever you give.
+You give "Java".
+ Output = Java
+----------------------------------------------------------
 4.What is the output of the following code
 @FunctionalInterface
 interface NIT 
@@ -67,7 +95,11 @@ public class FunctionalInterfaceExample
 		System.out.println(nit.nit("Java"));
 	}
 }
-
+----->>
+Here NIT is functional interface.
+Lambda returns the same string.
+ Output > Java
+----------------------------------------------------------
 5.What is the output of the following code
 public class FunctionalInterfaceExample
 {
@@ -78,8 +110,11 @@ public class FunctionalInterfaceExample
 		System.out.println(fun.apply("Ankit"));
 	}
 }
-
-
+----->>
+"Ankit" starts with 'A'.
+So lambda returns true.
+Output > true
+----------------------------------------------------------
 6.Which is the correct Compile time error for the following snippet
 public class FunctionalInterface 
 {
@@ -89,23 +124,28 @@ public class FunctionalInterface
 		System.out.println(str);
 	}
 }
-
-
-
+----->>
+A lambda expression can only be assigned to a functional interface.
+Here you assign it to String → invalid.
+compile error:
+Type mismatch: cannot convert from lambda expression to String
+----------------------------------------------------------
 7.Choose the correct output of the following program
 @FunctionalInterface 
 interface Str
 {
 	String str(String str);
 }
-
 public class FunctionalInterface {
 	public static void main(String[] args) {
 		Str nit = s -> "Naresh"+s;
-		System.out.println(nit.str("IT"));	
+		System.out.println(nit.str("IT"));
 	}
 }
-
+----->>
+Lambda returns "Naresh" + s
+Output > NareshIT
+----------------------------------------------------------
 8.Choose the correct output of the following program
 interface NIT
 {
@@ -124,8 +164,11 @@ public class FunctionalInterface
 		};
 	}
 }
-
-
+----->>
+Lambda is created but never called.
+n.nit() is missing.
+Output > No Output.
+----------------------------------------------------------
 9.What is the output of the following program
 public class Java8
 {
@@ -134,19 +177,22 @@ public class Java8
 		() -> System.out.println("NareshIT");
 	}
 }
-
+----->>
+lamba not executed.
+----------------------------------------------------------
 10.What is the output of the following Snippet
 interface NIT
 {
 	public void myInterface(int a);
 }
-
 public class Java8 {
 	public static void main(String[] args) {
 		NIT nit = (a) -> a+1;
 	}
 }
-
+----->>
+Lambda is created but never called.
+----------------------------------------------------------
 11.What is the output of the following Snippet
 public class FunctionalInterface {
 	public static void main(String args[])
@@ -155,7 +201,10 @@ public class FunctionalInterface {
 		System.out.println(div.apply(15));
 	}
 }
-
+----->>
+15 / 2.0 = 7.5
+Output > 7.5
+----------------------------------------------------------
 12 What is the output of the following code
 
 class Student
@@ -185,14 +234,14 @@ public class FunctionalInterface
 	public static void main(String[] args) 
 	{
       Supplier<Student> stdSupplier = () -> new Student(1, "Virat", "Male", 24);
-		
         Student std =  stdSupplier.get();
         System.out.println(std);       
 	}
 }
-
-
-
+----->>
+Supplier creates a Student object.
+[id=1, name=Virat, gender=Male, age=24]
+----------------------------------------------------------
 13.What is the output of the following code
 interface NIT
 {
@@ -201,10 +250,12 @@ interface NIT
 
 public class Java8 {
 	public static void main(String[] args) {
-		NIT nit = (a) -> a+1;
+		NIT nit = (a) -> a+1; 
 	}
 }
-
+----->>
+Method not called.
+----------------------------------------------------------
 14.What is the output of the following code
 @FunctionalInterface
 interface NIT
@@ -218,8 +269,9 @@ public class FunctionalInterfaceExample
 		System.out.println("Result: "+nit.cal(20));
 	}
 }
+----->>
 Answer: Result 45
-
+----------------------------------------------------------
 15.What is the output of the following code
 @FunctionalInterface
 interface NIT
@@ -234,7 +286,9 @@ public class FunctionalInterfaceExample
 		
 	}
 }
-
+----->>
+Returns empty String 
+----------------------------------------------------------
 
 16.What is the output of the following code
 @FunctionalInterface
@@ -249,8 +303,10 @@ public class FunctionalInterfaceExample
 		System.out.println(nit.nit("NARESHIT"));		
 	}
 }
-
-
+----->>
+arguement ignored what lambda is given that is printed.
+Welcome to.
+----------------------------------------------------------
 17.What is the output of the following Snippet
 @FunctionalInterface
 interface NIT
@@ -263,8 +319,9 @@ public class FunctionalInterfaceExample
 	NIT nit = (String nit) -> nit +"";
 	}
 }
-
-
+----->>
+Lambda defined, but method never executed.
+----------------------------------------------------------
 18.What is the output of the following code
 interface NIT
 {
@@ -277,8 +334,9 @@ public class FunctionalInterface
 		System.out.println(nit.nit("NARESHIT"));		
 	}
 }
+----->>
 
-
+----------------------------------------------------------
 19.Simple Functional Interface without using Lambda function
 @FunctionalInterface
 interface NIT
