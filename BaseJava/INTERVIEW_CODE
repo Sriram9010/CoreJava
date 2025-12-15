@@ -1,7 +1,6 @@
 class LargestOfThree {
     public static void main(String[] args) {
         int a = 10, b = 25, c = 15;
-
         if (a > b && a > c)
             System.out.println(a + " is largest");
         else if (b > a && b > c)
@@ -12,19 +11,15 @@ class LargestOfThree {
 }
 =======================================================================================================================
 import java.util.*;
-
 class RemoveDuplicates {
     public static void main(String[] args) {
         int[] arr = {5, 2, 8, 2, 5, 1};
-
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
-            set.add(i);   // removes duplicates
+            set.add(i);   
         }
-
         List<Integer> list = new ArrayList<>(set);
-        Collections.sort(list);  // sort ascending
-
+        Collections.sort(list);  
         System.out.println(list);
     }
 }
