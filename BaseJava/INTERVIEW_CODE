@@ -10,4 +10,21 @@ class LargestOfThree {
             System.out.println(c + " is largest");
     }
 }
+=======================================================================================================================
+import java.util.*;
 
+class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 8, 2, 5, 1};
+
+        Set<Integer> set = new HashSet<>();
+        for (int i : arr) {
+            set.add(i);   // removes duplicates
+        }
+
+        List<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);  // sort ascending
+
+        System.out.println(list);
+    }
+}
