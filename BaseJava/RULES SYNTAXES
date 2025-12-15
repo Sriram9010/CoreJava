@@ -1,10 +1,8 @@
 🔹 1️⃣ What does “call a class” mean?
-
 👉 We do NOT call a class directly
 👉 We create an OBJECT of the class and then use that object
 
 Rule:
-
 Class → create Object → use methods/variables
 
 🔹 2️⃣ How to create an OBJECT?
@@ -14,7 +12,6 @@ ClassName objectName = new ClassName();
 🔹 3️⃣ Simple example (NORMAL CLASS)
 class Student {
     int id = 101;
-
     void study() {
         System.out.println("Student is studying");
     }
@@ -23,9 +20,7 @@ class Student {
 Using this class in main()
 public class Test {
     public static void main(String[] args) {
-
         Student s = new Student();   // object creation
-
         System.out.println(s.id);    // accessing variable
         s.study();                   // calling method
     }
@@ -35,13 +30,10 @@ Output:
 101
 Student is studying
 
-
 📌 Explanation
 
 Student → class
-
 s → object
-
 . (dot) → used to access members
 
 🔹 4️⃣ Object used for WHAT?
@@ -49,11 +41,8 @@ s → object
 An object is used to:
 
 Access variables
-
 Call methods
-
 Store data
-
 Perform actions
 
 🔹 5️⃣ Calling different TYPES of classes (IMPORTANT ⭐)
@@ -66,7 +55,6 @@ class Calculator {
         System.out.println(10 + 20);
     }
 }
-
 Calculator c = new Calculator();
 c.add();
 
@@ -76,9 +64,7 @@ class Demo {
         System.out.println("Hello");
     }
 }
-
 Demo.show();   // No object needed
-
 
 📌 static belongs to class, not object
 
@@ -97,7 +83,6 @@ outer.localClass();   // only inside method
 Animal a = new Animal() {
 };
 
-
 📌 No class name, object created directly
 
 🔹 7️⃣ Why we NEED objects?
@@ -107,27 +92,21 @@ Animal a = new Animal() {
 Example:
 class Demo {
     int x = 10;
-
     void show() {
         System.out.println(x);
     }
 }
 
-
 ❌ This is wrong:
-
 show();   // error
-
-
 ✅ Correct:
-
 Demo d = new Demo();
 d.show();
 
-🔹 8️⃣ Memory Tip 🧠
+8️⃣ Memory Tip 🧠
 Concept	Remember
 Class	Blueprint
 Object	Real thing
 new	Creates object
-.	Access members
+Access members
 static	No object
