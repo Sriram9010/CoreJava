@@ -88,7 +88,6 @@ Animal a = new Animal() {
 🔹 7️⃣ Why we NEED objects?
 
 👉 Because non-static members need an object
-
 Example:
 class Demo {
     int x = 10;
@@ -98,12 +97,13 @@ class Demo {
 }
 
 ❌ This is wrong:
-show();   // error
+show();  // error
 ✅ Correct:
 Demo d = new Demo();
 d.show();
 
 8️⃣ Memory Tip 🧠
+
 Concept	Remember
 Class	Blueprint
 Object	Real thing
