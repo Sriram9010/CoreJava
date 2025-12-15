@@ -1,0 +1,133 @@
+🔹 1️⃣ What does “call a class” mean?
+
+👉 We do NOT call a class directly
+👉 We create an OBJECT of the class and then use that object
+
+Rule:
+
+Class → create Object → use methods/variables
+
+🔹 2️⃣ How to create an OBJECT?
+General syntax:
+ClassName objectName = new ClassName();
+
+🔹 3️⃣ Simple example (NORMAL CLASS)
+class Student {
+    int id = 101;
+
+    void study() {
+        System.out.println("Student is studying");
+    }
+}
+
+Using this class in main()
+public class Test {
+    public static void main(String[] args) {
+
+        Student s = new Student();   // object creation
+
+        System.out.println(s.id);    // accessing variable
+        s.study();                   // calling method
+    }
+}
+
+Output:
+101
+Student is studying
+
+
+📌 Explanation
+
+Student → class
+
+s → object
+
+. (dot) → used to access members
+
+🔹 4️⃣ Object used for WHAT?
+
+An object is used to:
+
+Access variables
+
+Call methods
+
+Store data
+
+Perform actions
+
+🔹 5️⃣ Calling different TYPES of classes (IMPORTANT ⭐)
+🔸 A) Calling a NORMAL class
+Animal a = new Animal();
+
+🔸 B) Calling a class with METHODS
+class Calculator {
+    void add() {
+        System.out.println(10 + 20);
+    }
+}
+
+Calculator c = new Calculator();
+c.add();
+
+🔸 C) Calling a STATIC method (NO object)
+class Demo {
+    static void show() {
+        System.out.println("Hello");
+    }
+}
+
+Demo.show();   // No object needed
+
+
+📌 static belongs to class, not object
+
+🔹 6️⃣ Calling INNER CLASSES (from your code)
+🔸 A) Normal Inner Class
+Outer outer = new Outer();
+Outer.Inner inner = outer.new Inner();
+
+🔸 B) Static Nested Class
+Outer.Nested nested = new Outer.Nested();
+
+🔸 C) Local Inner Class
+outer.localClass();   // only inside method
+
+🔸 D) Anonymous Inner Class
+Animal a = new Animal() {
+};
+
+
+📌 No class name, object created directly
+
+🔹 7️⃣ Why we NEED objects?
+
+👉 Because non-static members need an object
+
+Example:
+class Demo {
+    int x = 10;
+
+    void show() {
+        System.out.println(x);
+    }
+}
+
+
+❌ This is wrong:
+
+show();   // error
+
+
+✅ Correct:
+
+Demo d = new Demo();
+d.show();
+
+🔹 8️⃣ Memory Tip 🧠
+Concept	Remember
+Class	Blueprint
+Object	Real thing
+new	Creates object
+.	Access members
+static	No object
