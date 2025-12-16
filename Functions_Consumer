@@ -1,0 +1,33 @@
+import java.util.function.Consumer;
+
+public class ValueModifier {
+
+    // modifyValue method
+    public static void modifyValue(int value, Consumer<Integer> consumer) {
+        consumer.accept(value);
+    }
+
+    public static void main(String[] args) {
+
+        int sampleValue = 5;   // change this value for different test cases
+
+        System.out.println("Original value: " + sampleValue);
+
+        // Consumer to double the value
+        Consumer<Integer> doubleValue = v ->
+                System.out.println("After doubling the value: " + (v * 2));
+
+        // Consumer to increment the value by 3
+        Consumer<Integer> incrementBy = v ->
+                System.out.println("After incrementing the value by 3: " + (v + 3));
+
+        // Consumer to square the value
+        Consumer<Integer> squareValue = v ->
+                System.out.println("After squaring the value: " + (v * v));
+
+        // Testing consumers
+        modifyValue(sampleValue, doubleValue);
+        modifyValue(sampleValue, incrementBy);
+        modifyValue(sampleValue, squareValue);
+    }
+}
