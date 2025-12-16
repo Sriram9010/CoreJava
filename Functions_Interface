@@ -74,32 +74,7 @@ Then passed them to:
 modifyValue(sampleValue, doubleValue);
 This is exactly how functional programming works in Java.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+=========================================================================================
 import java.util.function.Consumer;
 
 public class ValueModifier {
