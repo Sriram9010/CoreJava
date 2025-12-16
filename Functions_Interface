@@ -1,0 +1,135 @@
+✅ 1. What is a Consumer?
+A Consumer is a function that:
+- takes one input
+- returns nothing
+- performs an action
+Signature:
+void accept(T t);
+
+Think of it as:
+“Give me a value, and I’ll do something with it.”
+Example:
+Consumer<Integer> printDouble = n -> System.out.println(n * 2);
+printDouble.accept(10);   // Output: 20
+-------------------------------------------
+✅ 2. What is a Lambda Expression?
+A lambda is just a short way to write a function.
+General form:
+(parameters) -> { body }
+-----------
+Old way (before Java 8):
+Consumer<Integer> c = new Consumer<Integer>() {
+    @Override
+    public void accept(Integer n) {
+        System.out.println(n * 2);
+    }
+};
+----
+Lambda way:
+Consumer<Integer> c = n -> System.out.println(n * 2);
+
+Cleaner, shorter, easier.
+-------------------------------------------
+ Function<T, R>
+Takes input T, returns output R.
+Signature:
+R apply(T t);
+
+Example:
+Function<Integer, Integer> square = n -> n * n;
+System.out.println(square.apply(5));  // 25
+
+Use when you want to return something.
+-------------------------------------
+Predicate<T>
+Returns true/false.
+Signature:
+boolean test(T t);
+Example:
+Predicate<Integer> isEven = n -> n % 2 == 0;
+System.out.println(isEven.test(4));  // true
+Use for conditions, filtering, validation.
+------------------------------------------------
+✅ Supplier<T>
+Takes no input, returns a value.
+Signature:
+T get();
+
+Example:
+Supplier<Double> randomValue = () -> Math.random();
+System.out.println(randomValue.get());
+
+Use when you want to generate or provide something.
+--------------------------------------------
+✅ Consumer<T>
+(You already know this one.)
+Takes input, returns nothing.
+-----------------------------------
+✅ 5. Your Code Uses Consumers Perfectly
+You created:
+- doubleValue → Consumer
+- incrementBy → Consumer
+- squareValue → Consumer
+Then passed them to:
+modifyValue(sampleValue, doubleValue);
+This is exactly how functional programming works in Java.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.function.Consumer;
+
+public class ValueModifier {
+
+    // modifyValue method
+    public static void modifyValue(int value, Consumer<Integer> consumer) {
+        consumer.accept(value);
+    }
+
+    public static void main(String[] args) {
+
+        int sampleValue = 5;   // change this value for different test cases
+
+        System.out.println("Original value: " + sampleValue);
+
+        // Consumer to double the value
+        Consumer<Integer> doubleValue = v ->
+                System.out.println("After doubling the value: " + (v * 2));
+
+        // Consumer to increment the value by 3
+        Consumer<Integer> incrementBy = v ->
+                System.out.println("After incrementing the value by 3: " + (v + 3));
+
+        // Consumer to square the value
+        Consumer<Integer> squareValue = v ->
+                System.out.println("After squaring the value: " + (v * v));
+
+        // Testing consumers
+        modifyValue(sampleValue, doubleValue);
+        modifyValue(sampleValue, incrementBy);
+        modifyValue(sampleValue, squareValue);
+    }
+}
