@@ -108,3 +108,137 @@ public class ValueModifier {
         modifyValue(sampleValue, squareValue);
     }
 }
+=======================================================================================================================================
+package codes;
+import java.util.Scanner;
+import java.util.function.Function;
+
+record Product(Integer id, String name, Double price) {}
+
+public class CalculateProductDiscount {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Product Id :");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Product Name :");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Product Price :");
+        double price = sc.nextDouble();
+
+        Product product = new Product(id, name, price);
+
+       
+        Function<Product, Double> discountFunction = p -> {
+            double discount;
+            if (p.price() >= 5000) {
+                discount = p.price() * 0.10;
+            } else {
+                discount = p.price() * 0.05;
+            }
+            return p.price() - discount;
+        };
+
+        double finalPrice = discountFunction.apply(product);
+
+        System.out.println("Final price of the product is :" + finalPrice);
+    }
+}
+=======================================================================================================================================
+package codes;
+import java.util.Scanner;
+import java.util.function.Consumer;
+
+
+   record Student (Integer id,String name,String course){}
+   
+   public class StudentNotification {
+	   public static void main(String args[]) {
+		   Scanner sc = new Scanner(System.in);
+		   
+		   System.out.println("Enter number of students:");
+		   int count = sc.nextInt();
+		   sc.nextLine();
+		   
+		   
+		 Consumer<Student> notifier = s ->
+         System.out.println("Hello " + s.name() + "! Welcome to the " + s.course() + " course.");
+
+         for (int i = 1; i <= count; i++) {
+         System.out.println("\nEnter details for Student " + i + ":");
+
+         System.out.print("Enter ID: ");
+         int id = sc.nextInt();
+         
+         System.out.print("Enter Name: ");
+         String name = sc.nextLine();
+
+         System.out.print("Enter Course: ");
+         String course = sc.nextLine();
+
+         Student student = new Student(id, name, course);
+
+         notifier.accept(student);
+   
+	   }
+    }
+ }
+=======================================================================================================================================
+package codes;
+import java.util.function.Supplier;
+import java.util.Random;
+public class PasswordGenerator {
+    public static void main(String[] args) {
+
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lower = "abcdefghijklmnopqrstuvwxyz";
+        String digits = "0123456789";
+        String special = "@#$%!&*";
+
+        String all = upper + lower + digits + special;
+
+        Random random = new Random();
+
+        Supplier<String> passwordSupplier = () -> {
+            StringBuilder password = new StringBuilder();
+
+            for (int i = 0; i < 8; i++) {
+                int index = random.nextInt(all.length());
+                password.append(all.charAt(index));
+            }
+
+            return password.toString();
+        };
+
+        System.out.println("Generated Password: " + passwordSupplier.get());
+    }
+}
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
