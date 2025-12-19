@@ -1,12 +1,8 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class SimpleExceptionDemo {
-
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
         try {
             System.out.print("Enter the first integer (a): ");
             int a = sc.nextInt();
@@ -17,7 +13,6 @@ public class SimpleExceptionDemo {
             System.out.println("You entered a = " + a + " and b = " + b);
         }
         catch (InputMismatchException e) {
-
             // getMessage()
             System.out.println("getMessage():=> " + e.getMessage());
             System.out.println();
@@ -34,7 +29,6 @@ public class SimpleExceptionDemo {
             System.out.println("printStackTrace():=> ");
             e.printStackTrace();
         }
-        
         finally {
             sc.close();
         }
@@ -59,3 +53,45 @@ Enter the first integer (a): 124
 Enter the second integer (b): 234
 You entered a = 124 and b = 234
 ==========
+package com.testing;
+
+import java.util.Scanner;
+
+public class ArrayIndexExceptionDemo {
+
+    public static void main(String[] args) {
+
+        int a[] = new int[2];
+        a[0] = 10;
+        a[1] = 20;
+
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            int index = sc.nextInt();
+            System.out.println(a[index]);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+
+            // getMessage()
+            System.out.println("getMessage():=> " + e.getMessage());
+            System.out.println();
+
+            // toString()
+            System.out.println("toString():=> " + e.toString());
+            System.out.println();
+
+            // println()
+            System.out.println("println():=> You tried to access an invalid array index. Please check the index range.");
+            System.out.println();
+
+            // printStackTrace()
+            System.out.println("printStackTrace():=>");
+            e.printStackTrace();
+        }
+        finally {
+            sc.close();
+        }
+    }
+}
+
