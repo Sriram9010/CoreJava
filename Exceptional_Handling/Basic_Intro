@@ -178,7 +178,7 @@ public class ClassCastExceptionDemo {
                 +obj.getClass().getName() +
                     " to String."
                 );
-                e.printStackTrace();
+                e.printStackTrace();    
             }
         }
     }
@@ -186,4 +186,12 @@ public class ClassCastExceptionDemo {
         handleClassCastException();
     }
 }
-
+--
+e.printStackTrace();
+Shows:
+Exception name
+Cause
+Line number
+Method call stack
+---
+==========================================================================================================================
