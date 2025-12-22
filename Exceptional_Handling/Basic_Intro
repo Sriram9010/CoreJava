@@ -194,4 +194,8 @@ Cause
 Line number
 Method call stack
 ---
+Safer Casting (Extra Knowledge)
+if (obj instanceof String) {
+    String s = (String) obj;
+}
 ==========================================================================================================================
