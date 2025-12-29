@@ -26,6 +26,65 @@ public class SearchElement {
     }
 }
 ===============================================================================================================================
+public class ReverseArray {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5};
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+===============================================================================================================================
+public class FirstLastSum {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5, 6};
+
+        int sum = arr[0] + arr[arr.length - 1];
+
+        System.out.println(sum);
+    }
+}
+===============================================================================================================================
+public class EvenOddArray {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+
+        System.out.print("Even elements are : ");
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                System.out.print(num + " ");
+            }
+        }
+
+        System.out.print("\nOdd elements are : ");
+        for (int num : arr) {
+            if (num % 2 != 0) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+===============================================================================================================================
+public class MiddleElement {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+
+        int n = arr.length;
+
+        if (n % 2 != 0) {
+            // Odd length
+            System.out.println(arr[n / 2]);
+        } else {
+            // Even length
+            System.out.println(arr[(n / 2) - 1] + " " + arr[n / 2]);
+        }
+    }
+}
+===============================================================================================================================
 package Arrays;
 import java.util.*;
 class StoreArray {
