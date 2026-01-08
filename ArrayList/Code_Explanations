@@ -1,0 +1,308 @@
+🧩 PART 1: Customer record (Data + Validation)
+public record Customer(
+
+
+👉 record is a special Java class used to store data.
+👉 It automatically creates:
+
+constructor
+
+getters
+
+toString(), equals(), hashCode()
+
+int custId,
+
+
+👉 Stores customer ID
+
+String customerName,
+
+
+👉 Stores customer name
+
+String pickupLocation,
+
+
+👉 Stores pickup location
+
+String dropLocation,
+
+
+👉 Stores drop location
+
+int distance,
+
+
+👉 Stores travel distance in kilometers
+
+String phone
+
+
+👉 Stores customer phone number
+
+) {
+
+
+👉 Starts the body of the record
+
+🔐 Compact Constructor (Validation Section)
+public Customer {
+
+
+👉 This is called a compact constructor
+👉 It runs automatically when object is created
+
+if (custId <= 0)
+
+
+👉 Checks if customer ID is invalid
+
+throw new IllegalArgumentException("Validation Error: Customer ID must be positive.");
+
+
+👉 Stops program and shows error message
+
+if (customerName == null || customerName.isBlank())
+
+
+👉 Checks if name is empty or null
+
+throw new IllegalArgumentException("Validation Error: Customer name cannot be null or blank.");
+
+
+👉 Throws error if name is invalid
+
+if (pickupLocation == null || pickupLocation.isBlank())
+
+
+👉 Validates pickup location
+
+throw new IllegalArgumentException("Validation Error: Pickup location cannot be null or blank.");
+
+if (dropLocation == null || dropLocation.isBlank())
+
+
+👉 Validates drop location
+
+throw new IllegalArgumentException("Validation Error: Drop location cannot be null or blank.");
+
+if (distance < 0)
+
+
+👉 Checks for negative distance
+
+throw new IllegalArgumentException("Validation Error: Distance cannot be negative.");
+
+if (phone == null || !phone.matches("\\d{10}"))
+
+
+👉 Ensures phone number has exactly 10 digits
+
+throw new IllegalArgumentException("Validation Error: Phone number must be 10 digits only.");
+
+}
+}
+
+
+👉 Ends constructor and record
+
+🧩 PART 2: CustomerService (Business Logic Class)
+import java.util.ArrayList;
+
+
+👉 Imports ArrayList class
+
+public class CustomerService {
+
+
+👉 Starts BLC class
+
+private ArrayList<Customer> customers;
+
+
+👉 Non-static field
+👉 Stores all customer objects
+👉 private = cannot be accessed directly outside class
+
+public CustomerService() {
+
+
+👉 No-argument constructor
+
+customers = new ArrayList<>();
+
+
+👉 Initializes ArrayList (memory creation)
+
+}
+
+
+👉 Constructor ends
+
+➕ Method 1: Add Customer
+public void addCustomer(Customer customer) {
+
+
+👉 Method to add customer to list
+
+customers.add(customer);
+
+
+👉 Adds customer object into ArrayList
+
+}
+
+🔍 Method 2: Check First-Time Customer
+private boolean isFirstCustomer(Customer customer) {
+
+
+👉 Helper method (private)
+
+for (Customer c : customers) {
+
+
+👉 Loops through customer list
+
+if (c.phone().equals(customer.phone())) {
+
+
+👉 Compares phone numbers
+
+return false;
+
+
+👉 Phone exists → old customer
+
+}
+
+return true;
+
+
+👉 Phone not found → new customer
+
+}
+
+💰 Method 3: Calculate Bill
+public double calculateBill(Customer customer) {
+
+
+👉 Calculates bill amount
+
+boolean isNewCustomer = isFirstCustomer(customer);
+
+
+👉 Calls helper method
+
+if (isNewCustomer) {
+    return 0.0;
+}
+
+
+👉 First ride → free
+
+int distance = customer.distance();
+
+
+👉 Gets travel distance
+
+if (distance <= 4) {
+    return 80.0;
+}
+
+
+👉 Fixed charge
+
+else {
+    return 80 + (distance - 4) * 6;
+}
+
+
+👉 Extra charge calculation
+
+}
+
+🖨️ Print Bill Method
+public void printBill(Customer customer) {
+
+
+👉 Prints bill
+
+double bill = calculateBill(customer);
+
+
+👉 Gets bill amount
+
+System.out.println(customer.customerName().toUpperCase()
+        + " Please pay your bill of Rs." + bill);
+
+
+👉 Prints output format
+
+}
+}
+
+🧩 PART 3: ELC – CabCustomerServiceTester
+public class CabCustomerServiceTester {
+
+
+👉 Execution class
+
+public static void main(String[] args) {
+
+
+👉 Program starts here
+
+CustomerService service = new CustomerService();
+
+
+👉 Creates service object
+
+Customer c1 = new Customer(1, "John", "Ameerpet", "Madhapur", 5, "9876543210");
+
+
+👉 First customer object
+
+service.printBill(c1);
+service.addCustomer(c1);
+
+
+👉 Print bill → add to list
+
+Customer c2 = new Customer(2, "Smith", "KPHB", "Gachibowli", 3, "9123456789");
+
+
+👉 Second customer
+
+service.printBill(c2);
+service.addCustomer(c2);
+
+Customer c3 = new Customer(3, "John", "Ameerpet", "Banjara Hills", 6, "9876543210");
+
+
+👉 Same phone → old customer
+
+service.printBill(c3);
+
+
+👉 Paid ride
+
+}
+}
+
+
+👉 Program ends
+
+🎯 Final Simple Summary
+
+Record → stores customer data
+
+Compact constructor → validation
+
+ArrayList → stores customers
+
+Phone → identifies new/old customer
+
+First ride → free
+
+Billing logic → applied correctly
