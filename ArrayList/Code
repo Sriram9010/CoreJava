@@ -1,0 +1,108 @@
+public record Customer(
+        int custId,
+        String customerName,
+        String pickupLocation,
+        String dropLocation,
+        int distance,
+        String phone
+) {
+    public Customer {
+        if (custId <= 0)
+            throw new IllegalArgumentException("Validation Error: Customer ID must be positive.");
+
+        if (customerName == null || customerName.isBlank())
+            throw new IllegalArgumentException("Validation Error: Customer name cannot be null or blank.");
+
+        if (pickupLocation == null || pickupLocation.isBlank())
+            throw new IllegalArgumentException("Validation Error: Pickup location cannot be null or blank.");
+
+        if (dropLocation == null || dropLocation.isBlank())
+            throw new IllegalArgumentException("Validation Error: Drop location cannot be null or blank.");
+
+        if (distance < 0)
+            throw new IllegalArgumentException("Validation Error: Distance cannot be negative.");
+
+        if (phone == null || !phone.matches("\\d{10}"))
+            throw new IllegalArgumentException("Validation Error: Phone number must be 10 digits only.");
+    }
+}
+......
+import java.util.ArrayList;
+
+public class CustomerService {
+
+    private ArrayList<Customer> customers;
+
+    // No-arg constructor
+    public CustomerService() {
+        customers = new ArrayList<>();
+    }
+
+    // 1) Add customer
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
+    // 2) Helper method to check first-time customer
+    private boolean isFirstCustomer(Customer customer) {
+        for (Customer c : customers) {
+            if (c.phone().equals(customer.phone())) {
+                return false; // Existing customer
+            }
+        }
+        return true; // New customer
+    }
+
+    // 3) Calculate bill
+    public double calculateBill(Customer customer) {
+
+        boolean isNewCustomer = isFirstCustomer(customer);
+
+        if (isNewCustomer) {
+            return 0.0;
+        }
+
+        int distance = customer.distance();
+
+        if (distance <= 4) {
+            return 80.0;
+        } else {
+            return 80 + (distance - 4) * 6;
+        }
+    }
+
+    // Print bill
+    public void printBill(Customer customer) {
+        double bill = calculateBill(customer);
+        System.out.println(customer.customerName().toUpperCase()
+                + " Please pay your bill of Rs." + bill);
+    }
+}
+-------
+public class CabCustomerServiceTester {
+
+    public static void main(String[] args) {
+
+        CustomerService service = new CustomerService();
+
+        try {
+            // Test Case 1
+            Customer c1 = new Customer(1, "John", "Ameerpet", "Madhapur", 5, "9876543210");
+            service.printBill(c1);
+            service.addCustomer(c1);
+
+            // Test Case 2
+            Customer c2 = new Customer(2, "Smith", "KPHB", "Gachibowli", 3, "9123456789");
+            service.printBill(c2);
+            service.addCustomer(c2);
+
+            // Test Case 3
+            Customer c3 = new Customer(3, "John", "Ameerpet", "Banjara Hills", 6, "9876543210");
+            service.printBill(c3);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+============================================================================================================================================
