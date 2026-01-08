@@ -63,3 +63,24 @@ public class ComparatorDemo {
         }
     }
 }
+====================================================
+import java.util.*;
+
+public class ListDemo {
+    public static void main(String[] args) {
+
+        List<String> list = new ArrayList<>();
+
+        list.add("Java");
+        list.add("Python");
+        list.add("Java");   // duplicate allowed
+
+        System.out.println(list);
+
+        System.out.println("Element at index 1: " + list.get(1));
+
+        list.remove("Python");
+
+        System.out.println(list);
+    }
+}
