@@ -1,115 +1,20 @@
 🧩 PART 1: Customer record (Data + Validation)
 public record Customer(
-
-
 👉 record is a special Java class used to store data.
 👉 It automatically creates:
 
-constructor
-
-getters
-
-toString(), equals(), hashCode()
-
-int custId,
-
-
-👉 Stores customer ID
-
-String customerName,
-
-
-👉 Stores customer name
-
-String pickupLocation,
-
-
-👉 Stores pickup location
-
-String dropLocation,
-
-
-👉 Stores drop location
-
-int distance,
-
-
-👉 Stores travel distance in kilometers
-
-String phone
-
-
-👉 Stores customer phone number
-
-) {
-
-
-👉 Starts the body of the record
-
 🔐 Compact Constructor (Validation Section)
 public Customer {
-
 
 👉 This is called a compact constructor
 👉 It runs automatically when object is created
 
 if (custId <= 0)
 
-
-👉 Checks if customer ID is invalid
-
-throw new IllegalArgumentException("Validation Error: Customer ID must be positive.");
-
-
-👉 Stops program and shows error message
-
-if (customerName == null || customerName.isBlank())
-
-
-👉 Checks if name is empty or null
-
-throw new IllegalArgumentException("Validation Error: Customer name cannot be null or blank.");
-
-
-👉 Throws error if name is invalid
-
-if (pickupLocation == null || pickupLocation.isBlank())
-
-
-👉 Validates pickup location
-
-throw new IllegalArgumentException("Validation Error: Pickup location cannot be null or blank.");
-
-if (dropLocation == null || dropLocation.isBlank())
-
-
-👉 Validates drop location
-
-throw new IllegalArgumentException("Validation Error: Drop location cannot be null or blank.");
-
-if (distance < 0)
-
-
-👉 Checks for negative distance
-
-throw new IllegalArgumentException("Validation Error: Distance cannot be negative.");
-
-if (phone == null || !phone.matches("\\d{10}"))
-
-
-👉 Ensures phone number has exactly 10 digits
-
-throw new IllegalArgumentException("Validation Error: Phone number must be 10 digits only.");
-
-}
-}
-
-
 👉 Ends constructor and record
 
 🧩 PART 2: CustomerService (Business Logic Class)
 import java.util.ArrayList;
-
 
 👉 Imports ArrayList class
 
@@ -127,16 +32,12 @@ private ArrayList<Customer> customers;
 
 public CustomerService() {
 
-
 👉 No-argument constructor
 
 customers = new ArrayList<>();
-
-
 👉 Initializes ArrayList (memory creation)
 
 }
-
 
 👉 Constructor ends
 
